@@ -62,6 +62,8 @@ class Car {
 class EV extends Car {
   constructor(make, speed, charge) {
     super(make, speed);
+
+    // custom attributes below
     this.charge = charge;
   }
 
@@ -98,3 +100,56 @@ tesla
 // bmw.accelerate();
 // bmw.brake();
 // bmw.brake();
+
+class Book {
+  // your code here
+  constructor(title, quantity) {
+    this.title = title;
+    this.quantity = quantity;
+  }
+
+  changeTitle(str) {
+    this.title = str;
+  }
+}
+
+let hp = new Book("harry potter", 1);
+console.log(hp);
+let gs = new Book("goosebumps", 2);
+
+class Bookstore {
+  constructor(name) {
+    this.name = name;
+    this.books = [];
+  }
+  // your code here
+  storeBook(book) {
+    this.books.push(book);
+  }
+
+  getAllBooks() {
+    console.log(this.books);
+    return this.books;
+  }
+
+  getBooksTotal() {
+    // console.log(this.getAllBooks().length);
+    return this.books
+      .map((book) => book.quantity)
+      .reduce((total, qty) => total + qty, 0);
+  }
+}
+
+let nbs = new Bookstore("NBS");
+console.log(nbs);
+
+nbs.storeBook(hp);
+console.log(nbs);
+
+nbs.storeBook(gs);
+
+nbs.getAllBooks();
+console.log("total below");
+nbs.getBooksTotal();
+
+console.log(books);
